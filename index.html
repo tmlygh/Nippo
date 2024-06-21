@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>フォームの例</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<script>
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else {
+        alert("Geolocation is not supported by this browser.");
+      }
+    }
+    function showPosition(position) {
+      var latitude = position.coords.latitude;
+      var longitude = position.coords.longitude;
+      document.getElementById("location").value = latitude + ", " + longitude;
+    }
+    </script>
+<body>
+    <form>
+        <div class="form-row">
+            <div class="form-item">
+                <label class="form-label" for="name">氏名:</label>
+                <input class="form-input" type="text" id="氏名" name="氏名"><br>
+                <label class="form-label" for="name">車両番号:</label>
+                <input class="form-input" type="text" id="車番" name="車番"><br>
+                <hr width="100%">
+                <label class="form-label" for="開始日時">開始時間:</label>
+                <input class="form-input" type="datetime-local" id="開始時間" name="開始時間"><br>
+                <label class="form-label" for="開始場所">開始場所:</label>
+                <input class="form-input" type="text" id="開始場所" name="開始場所"><br>
+                <hr width="100%">
+                <label class="form-label" for="日時時間">終了時間:</label>
+                <input class="form-input" type="time" id="終了時間" name="終了時間"><br>
+                <label class="form-label" for="終了場所">終了場所:</label>
+                <input class="form-input" type="text" id="終了場所" name="終了場所"><br>
+                <label class="form-label" for="meter">運転後の距離計:</label>
+                <input class="form-input" type="number" id="meter" name="meter"><br>
+                <hr width="100%">
+                <label class="form-label" for="name">経由地:</label>
+                <input class="form-input" type="text" id="name" name="name"><br>
+                <label for="location">現在位置:</label>
+                <input type="text" id="location" name="location" readonly>
+                 <button type="button" onclick="getLocation()">位置情報取得</button>
+        
+    </form>
+</body>
+</html>
